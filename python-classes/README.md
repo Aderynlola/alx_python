@@ -1,7 +1,7 @@
 Python - Classes and Objects
 
 Why Python programming is awesome
-What is OOP
+What is Object Oriented Programming
 “first-class everything”
 What is a class
 What is an object and an instance
