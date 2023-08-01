@@ -1,13 +1,10 @@
 """Square class definition"""
 class Square:
 
-    """Represents a square
-    Attributes:
-        __size (int): size of a side of the square
-    """
+    """ square with private instance attribute size """
 
     def __init__(self, size=0):
-        """ square with private instance attribute size """
+        
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
