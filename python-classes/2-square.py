@@ -1,5 +1,10 @@
-""" defining the square class """
+"""Square class definition"""
 class Square:
+
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
+    """
 
     def __init__(self, size=0):
         """ square with private instance attribute size """
