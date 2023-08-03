@@ -1,6 +1,7 @@
 """Creates a Square class."""
 Rectangle = __import__('7-rectangle').Rectangle
 
+
 class Square(Rectangle):
     """class Square that inherits from Rectangle (9-rectangle.py)
     Private instance attribute size.
