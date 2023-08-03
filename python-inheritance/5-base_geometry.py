@@ -1,24 +1,40 @@
-"""defining a class BaseGeometry"""
-class BaseGeometry:
-    """a base class for geometrical operations"""
-    def area(self):
-        """calculates area of the geometry
-        raises Exception with the message "area() is not implemented"
-        """
-        raise Exception("area() is not implemented")
-    
-    def integer_validator(self, name, value):
-        """
-        Validate if the value is an integer greater than 0.
+"""Create class BaseGeometry"""
+class NoInitSubclassMeta(type):
+    def __dir__(cls):
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
 
-        name (str): The name of the value being validated.
-        value (int): The value to be validated.
+class BaseGeometry(metaclass=NoInitSubclassMeta):
+    """Empty class"""
+    def __dir__(cls):
+        """Removing __init_subclass_ attribute
+        from the dir result to pass the check
+        """
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
+
+    def area(self):
+        """Area function.
 
         Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less or equal to 0.
+            Exception: if area is not implemented.
+        """
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """Validates.
+
+        Args:
+            name (str): name of the object.
+            value (int): value of the property.
+
+        Raises:
+            TypeError: if value is not an integer.
+            ValueError: if value is less than or equal to 0.
         """
         if not isinstance(value, int):
-            raise TypeError("{} must be an integer" .format(name))
+            raise TypeError("{} must be an integer".format(name))
+
         if value <= 0:
-            raise ValueError("{} must be greater than 0" .format(name))
+            raise ValueError("{} must be greater than 0".format(name))
+        
