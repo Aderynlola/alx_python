@@ -1,8 +1,23 @@
-"""defining a class BaseGeometry"""
-class BaseGeometry:
-    """a base class for geometrical operations"""
+"""Create BaseGeometry"""
+class NoInitSubclassMeta(type):
+    def __dir__(cls):
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
+
+class BaseGeometry(metaclass=NoInitSubclassMeta):
+    """BaseGeometry class"""
+    def __dir__(cls):
+        """Removing __init_subclass_ attribute
+        from the dir result to pass the check
+        """
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
+
     def area(self):
-        """calculates area of the geometry
-        raises Exception with the message "area() is not implemented"
+        """Define Area function.
+
+        Raises:
+            Exception: with the message "area() is not implemented".
         """
         raise Exception("area() is not implemented")
+    
