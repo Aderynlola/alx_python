@@ -21,3 +21,4 @@ if __name__ == "__main__":
 
     with open("{}.json".format(argv[1]), 'w') as f:
         dump({argv[1]: todo_list}, f)
+        
